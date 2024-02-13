@@ -1,20 +1,100 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quelle est la combinaison pour ouvrir la capsule ? </title>
-    <link rel="stylesheet" href="style.css">
+    <title>Vérification du code</title>
+    <style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('https://images.unsplash.com/photo-1523821741446-edb2b68bb7a0?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    width: 300px;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.login-container input[type="text"],
+.login-container input[type="submit"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.login-container input[type="submit"] {
+    background-color: #048B9A;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.login-container input[type="submit"]:hover {
+    background-color: #048B9A;
+}
+
+.message {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    color: #333;
+}
+.good {
+            color: green;
+        }
+        .bad {
+            color: red;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Vérification du code d'ouverture de la capsule</h1>
-        <form id="codeForm">
-            <label for="code">Entrez votre code :</label>
-            <input type="text" id="code" name="code" required>
-            <button type="submit">Vérifier</button>
+    <div class="login-container">
+        <h2>Vérification du code</h2>
+        <form id="loginForm">
+            <input type="text" id="codeInput" placeholder="Code ?">
+            <input type="submit" value="Vérifier">
         </form>
-        <div id="message"></div>
+        <div class="message" id="message"></div>
     </div>
-    <script src="script.js"></script>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Empêche la soumission du formulaire
+
+            // Récupère la valeur saisie dans le champ de code
+            var code = document.getElementById('codeInput').value;
+
+            // Vérifie si le code est égal à 624
+            if (code === '624') {
+                document.getElementById('message').innerText = 'Bonne réponse';
+                document.getElementById('message').className = 'message good';
+            } else {
+                document.getElementById('message').innerText = 'Mauvaise réponse';
+                document.getElementById('message').className = 'message bad';
+            }
+        });
+    </script>
 </body>
 </html>
